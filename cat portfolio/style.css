@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, serif;
+    overflow: hidden;
+}
+
+.garden {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #c5e8c3 0%,
+            #e8f3d5 60%,
+            #789b58 60%,
+            #496b39 100%
+        );
+}
+
+/* Welcome text */
+
+.welcome {
+    text-align: center;
+    padding-top: 70px;
+    color: #315b38;
+    font-size: 35px;
+}
+
+/* Cat */
+
+.cat {
+    position: absolute;
+    bottom: 90px;
+    left: -100px;
+    font-size: 65px;
+    animation: walk 4s linear forwards;
+    z-index: 5;
+}
+
+@keyframes walk {
+    0% {
+        left: -100px;
+        transform: scaleX(1);
+    }
+
+    50% {
+        left: 45%;
+        transform: scaleX(1);
+    }
+
+    100% {
+        left: 45%;
+        transform: scaleX(1);
+    }
+}
+
+/* Scratch marks */
+
+.scratch {
+    position: absolute;
+    top: 40%;
+    left: 48%;
+    font-size: 65px;
+    color: white;
+    opacity: 0;
+    transform: scale(0);
+    z-index: 10;
+}
+
+.scratch.show {
+    animation: scratchEffect 1s ease forwards;
+}
+
+@keyframes scratchEffect {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5) rotate(30deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(2) rotate(-20deg);
+    }
+}
+
+/* Profile card */
+
+.profile {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -40%) scale(0);
+    opacity: 0;
+
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 35px;
+    border-radius: 25px;
+    width: 320px;
+
+    box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+    z-index: 8;
+}
+
+.profile.show {
+    animation: popUp 1s ease forwards;
+}
+
+.profile img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #789b58;
+}
+
+.profile h1 {
+    color: #315b38;
+    margin-top: 15px;
+}
+
+.profile p {
+    color: #666;
+    margin: 12px 0 20px;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background: #496b39;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #315b38;
+}
+
+@keyframes popUp {
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Flowers */
+
+.grass {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    font-size: 35px;
+}
